@@ -1,0 +1,270 @@
+﻿@model AirlineManagementSystem.Models.Reservation
+@{
+    ViewBag.Title = "BookingDetail";
+    Layout = "~/Views/Shared/MyTravelMaster.cshtml";
+}
+
+
+
+<!-- breadcrumb-area -->
+<section class="breadcrumb-area breadcrumb-bg">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="breadcrumb-content text-center">
+                    <h2 class="title">Booking Detail</h2>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Booking Detail</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- breadcrumb-area-end -->
+<!-- booking-details-area -->
+<section class="booking-details-area">
+    <input type="hidden" id="hdnfieldres" />
+    <div class="container">
+        <div class="row">
+            <div class="col-73">
+                <div class="primary-contact">
+                    <i class="fa-regular fa-user"></i>
+                    <h2 class="title">Passenger 1: Ms (Primary Contact)</h2>
+                </div>
+                <div class="booking-details-wrap">
+                    <form action="#">
+                        <div class="form-grp">
+                            <div class="col-md-6">
+                                <div class="form-grp">
+                                    <div class="icon">
+                                        <i class="flaticon-user"></i>
+                                    </div>
+                                    <div class="form">
+                                        <label for="email">First Name</label>
+                                        <input type="text" onchange="validdate('#firstName', '#msgName', 'First Name ')" id="firstName" placeholder="First Name">
+                                        <span class="text-danger" id="msgName"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-grp">
+                                    <div class="icon">
+                                        <i class="flaticon-user"></i>
+                                    </div>
+                                    <div class="form">
+                                        <label for="email">Last Name</label>
+                                        <input type="text" onchange="validdate('#lastName', '#msgLName', 'Last Name ')" id="lastName" placeholder="Last Name">
+                                        <span class="text-danger" id="msgLName"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-grp">
+                            <div class="col-md-6">
+                                <div class="form-grp">
+                                    <div class="icon">
+                                        <i class="flaticon-arroba"></i>
+                                    </div>
+                                    <div class="form">
+                                        <label for="email">Your Email</label>
+                                        <input type="email" onchange="validdate('#email', '#msgemail', 'Email ')" id="email" placeholder="youinfo@gmail.com">
+                                        <span class="text-danger" id="msgemail"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-grp">
+                                    <div class="icon">
+                                        <i class="flaticon-telephone-call"></i>
+                                    </div>
+                                    <div class="form">
+                                        <input type="number" onchange="validdate('#phoneno', '#phone', 'Phone No')" id="phoneno" placeholder="Mobile Number *">
+                                        <span class="text-danger" id="phone"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-grp">
+                            <div class="col-md-6">
+                                <div class="form-grp">
+                                    <div class="icon">
+                                        <i class="flaticon-add-user"></i>
+                                    </div>
+                                    <div class="form">
+                                        <input type="number" onchange="validdate('#cNIC', '#msgcnic', 'CNIC')" id="cNIC" placeholder="CNIC *">
+                                        <span class="text-danger" id="msgcnic"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-grp">
+                                    <div class="icon">
+                                        <i class="flaticon-five-stars"></i>
+                                    </div>
+                                    <div class="form">
+                                        <input type="number" onchange="validdate('#passportNo', '#msgpassport', 'Passport No')" id="passportNo" placeholder="PassportNumber :  98265">
+                                        <span class="text-danger" id="msgpassport"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-grp">
+                            <div class="col-md-6">
+                                <div class="form-grp">
+                                    <div class="icon">
+                                        <i class="flaticon-globe-1"></i>
+                                    </div>
+                                    <div class="form">
+                                        <label for="nationality">Nationality</label>
+                                        <input type="text" onchange="validdate('#nationality', '#msgnationality', 'Nationality')" id="nationality" placeholder="Nationality">
+                                        <span class="text-danger" id="msgnationality"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-grp">
+                                    <div class="icon">
+                                        <i class="flaticon-send"></i>
+                                    </div>
+                                    <div class="form">
+                                        <label for="nationality">Cabin</label>
+                                        <div class="form-group form-float" onchange="validdateDropDowns('#cabinID', '#msgcabin', 'Cabin')" id="cabinID"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-grp">
+                            <div class="col-md-6">
+                                <div class="form-grp">
+                                    <div class="icon">
+                                        <i class="flaticon-flight-1"></i>
+                                    </div>
+                                    <div class="form">
+                                        <label for="nationality">Flight Schedule</label>
+                                        <div class="form-group form-float" onchange="validdateDropDowns('#flightScheduleId', '#msgfschedule', 'Flight Schedule')" id="flightScheduleId"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-grp">
+                                    <div class="icon">
+                                        <i class="flaticon-home"></i>
+                                    </div>
+                                    <div class="form">
+                                        <input type="text" onchange="validdate('#reservationCode', '#msgrescode', 'Reservation Code')" id="reservationCode" placeholder="Reservation Code *">
+                                        <span class="text-danger" id="msgrescode"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-grp">
+                            <div class="col-md-6">
+                                <div class="form-grp">
+                                    <div class="icon">
+                                        <i class="flaticon-five-stars"></i>
+                                    </div>
+                                    <div class="form">
+                                        <input type="number" onchange="validdate('#seatNo', '#msgseat', 'Seat')" id="seatNo" placeholder="Seat No *">
+                                        <span class="text-danger" id="msgseat"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-grp">
+                                    <div class="icon">
+                                        <i class="flaticon-coding"></i>
+                                    </div>
+                                    <div class="form">
+                                        <input type="password" onchange="validdate('#password', '#msgpassword', 'Password')" id="password" placeholder="Password *">
+                                        <span class="text-danger" id="msgpassword"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-grp">
+                            <div class="col-md-12">
+                                <div class="form-grp">
+                                    <div class="icon">
+                                        <i class="flaticon-sunny"></i>
+                                    </div>
+                                    <div class="form">
+                                        <label for="nationality">Status</label>
+                                        <select class="form-control" onchange="validdateDropDowns('#status', '#msgstatus', 'Status');" id="status">
+                                            <option value="-1">----Select Status----</option>
+                                            <option value="1">Active</option>
+                                            <option value="0">InActive</option>
+                                        </select>
+
+                                        <span class="text-danger" id="msgstatus"></span>
+                                    </div>
+                                </div>
+                                <div class="text-center text-danger">
+                                    <span>If you want to book more than one Seat Plz click Add New otherwise one seat will be counted</span>
+                                    @*<a href="#" class="btn">+ Add New</a>*@
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <button class="btn btn-raised btn-primary waves-effect col-md-12" id="btnSubmit" onclick="Add();">+ Add New</button>
+                </div>
+            </div>
+            <div class="col-27">
+                <aside class="booking-sidebar">
+                    <h2 class="main-title">Booking Info</h2>
+                    <div class="widget">
+                        <ul class="flight-info">
+                            <li><img src="~/CustomerAssets/img/icon/sidebar_flight_icon.jpg" alt=""> <p>12:0 (DEK) <span>Dubai</span></p></li>
+                            <li><p>16:30 (DEK) <span>istanbul</span></p></li>
+                        </ul>
+                    </div>
+                    <div class="widget">
+                        <h2 class="widget-title">Your Preferred Bank</h2>
+                        <ul class="preferred-bank-wrap">
+                            <li><a href="#"><img src="~/CustomerAssets/img/images/bank_logo01.png" alt=""></a></li>
+                            <li><a href="#"><img src="~/CustomerAssets/img/images/bank_logo02.png" alt=""></a></li>
+                            <li><a href="#"><img src="~/CustomerAssets/img/images/bank_logo03.png" alt=""></a></li>
+                            <li><a href="#"><img src="~/CustomerAssets/img/images/bank_logo04.png" alt=""></a></li>
+                            <li><a href="#"><img src="~/CustomerAssets/img/images/bank_logo05.png" alt=""></a></li>
+                            <li><a href="#"><img src="~/CustomerAssets/Img/images/bank_logo06.png" alt=""></a></li>
+                        </ul>
+                    </div>
+                    <div class="widget">
+                        <h2 class="widget-title">Your price summary</h2>
+                        <div class="price-summary-top">
+                            <ul>
+                                <li>Details</li>
+                                <li>Amount</li>
+                            </ul>
+                        </div>
+
+                        <div class="price-summary-detail">
+                            @foreach (var item in ViewBag.fare)
+                            {
+                                <ul>
+                                    <li>Adult x 1 <span id="fare">@item.MyFare.fare</span></li>
+                                    <li>Discount<span>- $110</span></li>
+                                    <li>Total Payable<span>$981.00</span></li>
+                                </ul>
+                            }
+                            @*<a href="#" class="btn">Pay now</a>*@
+                            <button class="btn btn-raised btn-primary waves-effect col-md-12" id="btnSubmit" onclick="Add();">Pay now</button>
+
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- booking-details-area-end -->
+
+
+<script type="text/javascript" src="~/Scripts/jquery-3.4.1.js"></script>
+<link href="~/AMSJS/iziToast.css" rel="stylesheet" />
+<script src="~/AMSJS/iziToast.js"></script>
+<script type="text/javascript" src="~/AMSJS/Reservate.js"></script>
+
